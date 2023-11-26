@@ -31,11 +31,17 @@ public class BankTransaction {
                 " amount: " + amount +
                 " description: " + description;
     }
-
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object obj){
+        if (this == obj) return true;
+        if(obj == null) return false;
+        BankTransaction that = (BankTransaction) obj;
+
+        return Double.compare(that.amount, amount) == 0 &&
+                date.equals(that.date) &&
+                description.equals(that.description);
     }
+
 
     @Override
     public int hashCode() {
